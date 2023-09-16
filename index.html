@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/fonts.css" rel="stylesheet">
+    <link href="./styles/media.css" rel="stylesheet">
+    <link href="./styles/stylecarrossel/animation.css" rel="stylesheet">
+    <link href="./styles/stylecarrossel/default.css" rel="stylesheet">
+    <link href="./styles/stylecarrossel/reset.min.css" rel="stylesheet">
+    <link href="./styles/stylecarrossel/stylecarrossel.css" rel="stylesheet">
+    <title>Landing Page</title>
+</head>
+<body>
+    <header>
+        <div id = "title">
+            <h1>Amazon</h1>
+            <h1>Prime Gaming</h1>
+        </div>
+
+        <ul>
+            <a href="#"><li>Início</li></a>
+            <a href="#"><li>Serviços</li></a>
+            <a href="#"><li>Sobre</li></a>
+            <a href="#"><li>Contato</li></a>
+            <a href="#" id="inscreva-se-btn"><li>Já tem uma conta?</li></a>
+        </ul>
+    </header>
+
+    <main>
+        <aside>
+            <h2>Insreva-se agora</h2>
+            <h2>No <span>amazon</span></h2>
+            <span><h2>prime gaming</h2></span>
+            <p>Obtenha os melhores benefícios com Amazon Prime!</p>
+            <p>Uma grande variedade de jogos e conteúdos esperam por você, inscreva-se digitando seu nome e email abaixo:</p>
+            <form>
+                <input type="text" placeholder="Nome">
+                <input type="email" placeholder="E-mail">
+                <input type="submit" value="Enviar">
+            </form>
+        </aside>
+
+        <article>
+            <img src="./components/fonts/images/primegaming.jpg" alt="imagem-twitch">
+        </article>
+    </main>
+
+    <div class="carrosel">
+        <div><h1>Catálogo</h1></div>
+        <div class="slide">
+            <img src="./components/fonts/images/r6skin.jpg" alt="imagem-r6" width="700px" height="395px">
+        </div>
+        <div class="slide">
+            <img src="./components/fonts/images/csskin.jpg" alt="imagem-cs" width="700px" height="395px">
+        </div>
+        <div class="slide">
+            <img src="./components/fonts/images/vavaskin.jpg" alt="imagem-vava" width="700px" height="395px">
+        </div>
+    </div>
+    <button id="prev">Anterior</button>
+    <button id="next">Próximo</button>
+
+    <div>Informações dos produtos: </div>
+    <div>- Skins de Rainbow Six Siege, Counter Strike e Valorant: Diversas skins para você jogar com estilo!</div>
+
+    <footer class="footer">
+        <div>
+            <h1>Amazon Prime</h1>
+            <h1>Gaming</h1>
+        </div>
+        <ul>
+            <li>Início</li>
+            <li>Serviços</li>
+            <li>Sobre</li>
+            <li>Contato</li>
+        </ul>
+    </footer>
+    
+</body>
+
+<script>
+const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+    const carrossel = document.querySelector(".carrossel");
+    const slides = document.querySelectorAll(".slide");
+    
+    let currentIndex = 0;
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.display = "block";
+            } else {
+                slide.style.display = "none";
+            }
+        });
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+    
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+    
+    nextButton.addEventListener("click", nextSlide);
+    prevButton.addEventListener("click", prevSlide);
+    
+    showSlide(currentIndex);
+    </script>
+</html>
